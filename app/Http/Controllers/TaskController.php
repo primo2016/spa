@@ -61,6 +61,7 @@ class TaskController extends Controller
             'descripcion' => 'required|max:200'
         ];
 
+        //Si es un nuevo registro, se validan atributos de la imagen
         if($request->task_id == 0) {
             $array_validate['photo_name'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
         }
@@ -68,6 +69,7 @@ class TaskController extends Controller
 
         $task = null;
 
+        //Se obtiene objeto en caso de ser una edición, sino se crea uno nuevo
         if(isset($request->task_id) && $request->task_id > 0) {
             $task = Task::find($request->task_id);
         } else {
@@ -79,7 +81,7 @@ class TaskController extends Controller
             // for save original image
             $ImageUpload = Image::make($files);
 
-
+            //Se crea la url que se guardará en la base.
             $urlimage = 'images/' . time() . $files->getClientOriginalName();
             $pathcomplete = public_path($urlimage);
 
@@ -89,10 +91,11 @@ class TaskController extends Controller
 
             $ImageUpload->save($pathcomplete);
 
-            // for save thumnail image
-
+            //
+            //Se crea una carpeta para renderizar las imagenes a 300x300
             $thumbnailPath = 'public/resize/';
 
+            //Si la carpeta no existe se crea
             if (!file_exists(public_path('resize/'))) {
                 mkdir(public_path('resize '), 666, true);
             }
@@ -106,6 +109,7 @@ class TaskController extends Controller
 
         }
 
+        //se actualizan los datos en la base.
         $task->descripcion = $request->descripcion;
         $task->save();
 

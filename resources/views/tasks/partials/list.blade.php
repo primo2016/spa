@@ -61,9 +61,10 @@
                 _token: '{{csrf_token()}}'
             },
             success: function(response) {
-                location.reload();
-                if (response.status == "success") {
 
+                if (response.status == "success") {
+                    alert(response.msg);
+                    location.reload();
                     console.log(response);
                 } else {
                     console.log(response);

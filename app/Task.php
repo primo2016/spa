@@ -10,7 +10,6 @@ class Task extends Model
 
     protected $dates = ['created_at'];
 
-    protected $fillable = [
-        'id', 'descripcion', 'urlimage', 'order', 'status',
+    protected $fillable = ['descripcion', 'urlimage', 'order', 'status',
     ];
 }
