@@ -11,13 +11,13 @@
 
 <!-- search box container starts  -->
 <div class="container">
-    <h3 class="text-center title-color">Drag and Drop Datatables Using jQuery UI Sortable - Demo </h3>
+    <h3 class="text-center title-color">Challenge Telec </h3>
     <p>&nbsp;</p>
     @include('tasks.partials.form')
     <hr>
     @include('tasks.partials.list')
     <hr>
-    <h5>Drag and Drop the table rows and <button class="btn btn-default" onclick="window.location.reload()"><b>REFRESH</b></button> the page to check the Demo. For the complete tutorial of how to make this demo app visit the following <a href="#">Link</a>.</h5>
+
 </div>
 
 
