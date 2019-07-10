@@ -14,4 +14,5 @@ Ejecutar el comando migration para la creación de tablas
 # php artisan migration
 ```
 
-Crear la base de datos en MySQL con el nombre que figura en el archivo .env (spadb)
+Crear la base de datos en MySQL con el nombre que figura en el archivo .env (spadb), y cambiar usuario y password según su propia configuración. 
+
